@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chat by TaffarelXavier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Chat</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/TaffarelXavier/chat" class="btn">View on GitHub</a>
+      <a href="https://github.com/TaffarelXavier/chat/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/TaffarelXavier/chat/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>&lt;!DOCTYPE html&gt;
+
+    </p>
+        
+        
+        Offset
+        
+            .right{
+                position:fixed;
+                width: 200px;
+                height: 100%;
+                right: 0px;
+                top:0px;
+                overflow:auto;
+            }
+            .right ul{
+                padding:0px;
+                margin:0px;
+            }
+            .right ul li{
+                list-style:none;
+                margin:2px;
+            }
+            .right ul li a{
+                padding:10px 5px;
+                background:#4989F1;
+                color:white;
+                display:block;
+            }
+            .right ul li a:hover{
+                background: white;
+                color:black;
+            }
+            .tooltip{
+                position: fixed;
+                width: 200px;
+                height:200px;
+                border:1px dotted #ccc;
+                box-shadow:0px 0px 10px 0px rgba(0,0,0,0.5);
+                z-index:9999;
+                background:white;
+                border-radius: 0px;
+                text-align: center;
+                padding:10px;
+            }
+            .tooltip &amp;gt; .arrow{
+                position: absolute;
+                border-top:15px solid transparent;
+                border-left:15px solid white;
+                border-bottom:15px solid transparent;
+                border-right:15px solid transparent;&lt;br&gt;
+                left:100%;
+            }
+            .tooltip textarea{
+                position: absolute;
+                max-height: 90%;
+                bottom:5px;
+                width: 200px;
+                top:30px;
+                left:0px;
+                right:0px;
+                margin:0px auto;
+            }
+            .tooltip span{
+                display:block;
+                text-align:left;
+            }
+        
+    
+
+<pre><code>&lt;body&gt;
+    &lt;div class="tooltip" hidden=""&gt;
+        &lt;p class="arrow"&gt;&lt;/p&gt;
+        &lt;span class="tooltip-title"&gt;Francisco Taffarel Xavier&lt;/span&gt;
+        &lt;textarea&gt;a&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;a href="#"&gt;Francisco Taffarel Xavier&lt;/a&gt;
+    &lt;div class="right"&gt;
+        &lt;ul&gt;
+            &lt;?php
+            for ($i = 0; $i &lt; 100; $i++) {
+
+
+                $hash = hash("whirlpool", md5(uniqid(rand(), true)));
+
+                $only_letters = preg_replace("/([0-9])/mi", "", $hash);
+
+                $only_numbers = preg_replace("/([a-z])/mi", "", $hash);
+
+                $total_palavras = strlen($only_numbers);
+
+                $n1 = substr($only_numbers, 0, 10);
+                $n2 = substr($only_numbers, 10, 10);
+                $n3 = substr($only_numbers, 20, 10);
+                $n4 = substr($only_numbers, 30, 10);
+
+                $s1 = substr($only_letters, 0, 10);
+                $s2 = substr($only_letters, 10, 10);
+                $s3 = substr($only_letters, 20, 10);
+                $s4 = substr($only_letters, 30, 10);
+
+                $p1_array = [
+                    "$n1-$s1-$n3-$s4-$n2-$s3-$n1",
+                    "$s3-$s1-$n2-$s1-$n1-$n4-$s2",
+                    "$n4-$s2-$s1-$n4-$s3-$s3-$n2",
+                    "$s2-$n2-$s4-$s3-$n3-$s1-$n3",
+                    "$s1-$n3-$n2-$s2-$s4-$n3-$s3",
+                    "$n1-$s4-$n4-$s4-$n3-$s4-$n2",
+                    "$s3-$s1-$n2-$s2-$n2-$s3-$s1",
+                    "$n2-$s3-$s2-$n3-$n1-$s4-$s1"
+                ];
+
+
+                $patt1 = "/("
+                        . "\d{10}\-\w{10}-\d{10}\-\w{10}-\d{10}\-\w{10}\-\d{10}|"
+                        . "\w{10}\-\w{10}-\d{10}\-\w{10}-\d{10}\-\d{10}\-\w{10}|"
+                        . "\d{10}\-\w{10}-\w{10}\-\d{10}-\w{10}\-\w{10}\-\d{10}|"
+                        . "\w{10}\-\d{10}-\w{10}\-\w{10}-\d{10}\-\w{10}\-\d{10}|"
+                        . "\w{10}\-\d{10}-\d{10}\-\w{10}-\w{10}\-\d{10}\-\w{10}|"
+                        . "\d{10}\-\w{10}-\d{10}\-\w{10}-\d{10}\-\w{10}\-\d{10}|"
+                        . "\w{10}\-\w{10}-\d{10}\-\w{10}-\d{10}\-\w{10}\-\w{10}|"
+                        . "\d{10}\-\w{10}-\w{10}\-\d{10}-\d{10}\-\w{10}\-\w{10}"
+                        . ")/";
+
+
+                $chave = array_rand($p1_array);
+
+                $verificar = preg_match($patt1, $p1_array[$chave]);
+
+                echo "&lt;li&gt;&lt;a class='tol' data-hash='$p1_array[$chave]\n$verificar'&gt;Teste $i&lt;/a&gt;&lt;/li&gt;";
+            }
+            ?&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+
+        permitir = 0;
+        topo = 0;
+        isSobre = false;
+        manter = false;
+
+        document.onmousemove = function (e) {
+
+            w = Math.ceil(screen.width / 2);
+            h = Math.ceil(screen.height / 2);
+
+            topo = e.clientY;
+
+            _right = 200 + "px";
+
+            if (manter === false) {
+                if (e.clientX &gt; w) {
+                    if (e.clientY &gt; h) {
+                        $(".tooltip").css({top: e.clientY - $(".tooltip").width() + 40 + "px", right: _right});
+                        $(".arrow").css({top: 140 + "px", right: _right});
+                        //$("textarea").val("a");
+                    }
+                    else {
+                        $(".tooltip").css({top: e.clientY - 40 + "px", right: _right});
+                        $(".arrow").css({top: 0 + "px", right: _right});
+                        //$("textarea").val("b");
+                    }
+                } else {
+                    if (e.clientY &gt; h) {
+                        $(".tooltip").css({top: e.clientY - $(".tooltip").height() - 10 + "px", right: _right});
+                        //$("textarea").val("c");
+                    }
+                    else {
+                        $(".tooltip").css({top: e.clientY - 0 + "px", right: _right});
+                        //$("textarea").val("d");
+                    }
+                }
+            }
+        };
+
+
+        document.onclick = function () {
+            if (isSobre === false) {
+                $(".tooltip").hide();
+            }
+        };
+
+        $(".tol").mouseover(function () {
+            var _this = $(this);
+
+            $(".tooltip-title").html(_this.text());
+            $("textarea").val(_this.attr('data-hash'));
+
+            isSobre = true;
+            manter = false;
+            $(".tooltip").show();
+        }).mouseout(function () {
+            isSobre = false;
+            manter = true;
+        });
+
+        $(".tooltip").mouseover(function () {
+            isSobre = true;
+        }).mouseout(function () {
+            isSobre = false;
+        });
+
+
+        document.onkeyup = function (e) {
+            if (e.keyCode === 27) {
+                $(".tooltip").hide();
+            }
+        };
+
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/TaffarelXavier/chat">Chat</a> is maintained by <a href="https://github.com/TaffarelXavier">TaffarelXavier</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
